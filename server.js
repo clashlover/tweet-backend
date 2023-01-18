@@ -31,7 +31,7 @@ app.post("/", (req, res) => {
   res.status(200).json("Success");
 });
 
-app.post("/delete", (req, res) => {
+app.delete("/delete", (req, res) => {
   const { id } = req.body;
   // console.log(id);
   Tweet.findByIdAndRemove(id, (err) => {
