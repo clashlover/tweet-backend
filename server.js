@@ -31,12 +31,12 @@ app.post("/", (req, res) => {
   res.status(200).json("Success");
 });
 
-app.delete("/", (req, res) => {
+app.post("/delete", (req, res) => {
   const { id } = req.body;
-
-  Tweet.findOneandRemove({ _id: id }, (err) => {
-    if (err) return err;
-    res.json(200).json("Deleted");
+  // console.log(id);
+  Tweet.findByIdAndRemove(id, (err) => {
+    if (err) throw err;
+    res.status(200).json("Deleted");
   });
 });
 
